@@ -1,2 +1,1 @@
-var weatherAPIkey = "0f55928a39ab9e330d3e15350ffc1bd4"
-var YelpAPIkey = "PeXlbgTbebtfh3he31qjPmbzXz5DOi-7pQibJO1sMhKWv7GAt041WtFlrqWrCBQ_sxXQjZSIP4Zczi_XihQtdGWhg1ALtyZdAhEUGmmPAF0S7OtLSpR5cO4SExUWZXYx"
+var MovieAPI = "c2892f35b3b0accbbc6178b362b1a1f5"
