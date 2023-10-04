@@ -7,7 +7,7 @@ async function fetchRecipeAPI() {
 	method: 'GET',
 	headers: {
 		'Accept-Language': 'en',
-		'X-RapidAPI-Key': 'cca843b0a3msh3bae8af4ca13636p1832e0jsnf296ec4e2a77',
+		'X-RapidAPI-Key': recipeAPI,
 		'X-RapidAPI-Host': 'edamam-recipe-search.p.rapidapi.com'
 	}
 };
