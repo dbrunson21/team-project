@@ -82,6 +82,13 @@ h3 {
   background: #5cbf2a;
 }
 
+#recipe-btn {
+  cursor: pointer;
+  width: 100px;
+  height: 30px;
+  background-color: #18ab29;
+}
+
 aside {
   width: 50%;
   float: left;
