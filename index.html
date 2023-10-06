@@ -9,38 +9,70 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
-      <h1>Food Flix</h1>
-    </header>
-    <nav class="navbar">
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Movies</a></li>
-        <li><a href="#">Recipes</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
+      <nav class="grey darken-2">
+        <a href="#" class="brand-logo head"
+          >FoodFlix <i class="tiny material-icons">local_movies</i></a
+        >
 
+        <ul class="right hide-on-med-and-down">
+          <li><a href="#">Home</a></li>
+          <li>
+            <a href="#" data-target="modal1">About</a>
+          </li>
+          <li><a href="#">Movies</a></li>
+          <li><a href="#">Recipes</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
     <main>
       <aside>
-        <ul class="buttons">
-          <h2 class="Movies">Movies Generator</h2>
-          <br /><br />
-          <li><a href="#" class="buttonClass">Actions</a></li>
-          <li><a href="#" class="buttonClass">Thrillers</a></li>
-          <li><a href="#" class="buttonClass">Comedy</a></li>
-          <li><a href="#" class="buttonClass">Drama</a></li>
-          <li><a href="#" class="buttonClass">Horrors</a></li>
-        </ul>
+        <h2 class="movies">Movies Generator</h2>
+        <div class="movieCategories">
+          <label class="container"
+            >Action
+            <input type="checkbox" checked="checked" />
+            <span class="checkmark"></span>
+          </label>
+
+          <label class="container"
+            >Comedy
+            <input type="checkbox" />
+            <span class="checkmark"></span>
+          </label>
+
+          <label class="container"
+            >Horror
+            <input type="checkbox" />
+            <span class="checkmark"></span>
+          </label>
+
+          <label class="container"
+            >Thriller
+            <input type="checkbox" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="container"
+            >Science fiction
+            <input type="checkbox" />
+            <span class="checkmark"></span>
+          </label>
+          <div class="movie-btn">
+            <button class="generate-m-btn">Generate</button>
+          </div>
+        </div>
       </aside>
 
       <section>
+        <h2 class="recipes">Recipes Generator</h2>
         <ul class="buttons">
-          <h2 class="Recipes">Recipes Generator</h2>
-          <br /><br />
           <li><a href="#" class="buttonClass">American</a></li>
           <li><a href="#" class="buttonClass">Asian</a></li>
           <li><a href="#" class="buttonClass">Mediteranean</a></li>
