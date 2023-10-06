@@ -12,11 +12,29 @@ async function fetchRecipeAPI() {
 	}
 };
 
-try {
-	const response = await fetch(url, options);
-	const result = await response.text();
-	console.log(result);
-} catch (error) {
-	console.error(error);
+    try {
+    	const response = await fetch(url, options);
+    	const result = await response.text();
+    	console.log(result);
+    } catch (error) {
+    	console.error(error);
+    }
 }
+
+async function fetchMovieApi() {
+    const url = `https://moviesdatabase.p.rapidapi.com/titles`;
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': `${movieAPI}`,
+            'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
+        }
+    }
+    try {
+        const response = await fetch(url, options);
+        const result = await response.json();
+        console.log(result);
+    } catch (error) {
+        console.error(error);
+    }
 }
