@@ -1,117 +1,58 @@
-* {
-  margin: 0;
-  padding: 0;
-  font-family: arial;
-  box-sizing: border-box;
-}
-
 body {
-  background-color: azure;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    font:white;
 }
-
 header {
-  background-color: rgba(128, 128, 128, 0.384);
-  text-align: center;
+    background: linear-gradient(45deg, #ff5733, #ffcc33); /
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
 }
-
-h3 {
-  text-decoration: underline;
-  font-weight: 700;
+h1 {
+    font-weight: bold;
+    font-size: 36px; 
+    font-weight: bold;
+    font-size: 48px; 
+    color: white;
 }
-
-.navbar {
-  background-color: slategray;
-  height: 70px;
+nav {
+    background-color: #444;
+    text-align: center;
+    padding: 10px 0;
 }
-
-.navbar ul {
-  list-style-type: none;
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 20px;
 }
-
-.navbar ul li {
-  display: inline-block;
-  line-height: 70px;
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    background-color: black;
 }
-
-.navbar ul li a {
-  text-decoration: none;
-  font-size: 24px;
-  color: black;
-  padding: 0 10px;
+.box {
+    background-color: #a59191;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+    width: 400px;
+    height: 300px;
 }
-
-.navbar ul li a:visited {
-  color: whitesmoke;
-}
-
-.navbar ul li a:hover {
-  color: blue;
-}
-
-.buttons {
-  display: inline-block;
-}
-
-.buttons ul li {
-  display: inline-block;
-}
-
-.buttons li a {
-  text-decoration: none;
-  font-size: 18px;
-  color: black;
-  padding: 0 10px;
-}
-
-.buttonClass {
-  font-size: 18px;
-  font-family: Arial;
-  width: 140px;
-  height: 50px;
-  border-width: 1px;
-  color: #fff;
-  border-color: #18ab29;
-  font-weight: bold;
-
-  border-bottom-right-radius: 28px;
-  text-shadow: 1px 1px 0px #2f6627;
-  background: #44c767;
-}
-
-.buttonClass:hover {
-  background: #5cbf2a;
-}
-
-aside {
-  width: 50%;
-  float: left;
-  padding: 10px;
-  height: 79vh;
-  border: 1px solid black;
-}
-
-section {
-  width: 50%;
-  float: left;
-  padding: 10px;
-  height: 79vh;
-  border: 1px solid black;
-  font-size: 20px;
-  text-align: center;
-}
-
 footer {
-  display: block;
-  clear: both;
-  background-color: slategray;
-  text-align: center;
-  padding: 25px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
-@media screen and (max-width: 600px) {
-  aside,
-  section,
-  article {
-    width: 100%;
-  }
+.tagline {
+    color: white;
 }
