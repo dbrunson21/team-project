@@ -26,7 +26,7 @@ async function fetchMovieApi() {
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': `${movieAPI}`,
+            'X-RapidAPI-Key': movieAPI,
             'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
         }
     }
