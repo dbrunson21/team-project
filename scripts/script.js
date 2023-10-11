@@ -3,3 +3,10 @@ $(document).ready(function () {
     indicators: true,
   });
 });
+$(document).ready(function () {
+  $(".modal").modal();
+});
+
+$(document).ready(function () {
+  $("select").formSelect();
+});

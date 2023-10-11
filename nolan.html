@@ -41,27 +41,61 @@
         ><img src="./images/movie.jpg"
       /></a>
     </div>
-    <div class="describtion">
-      <h3>Information</h3>
+    <div class="describtion z-depth-3">
+      <h3>FoodFlix</h3>
       <p>describtion goes here about foodflix!</p>
-    </div>
-    <section class="mainContainer">
-      <div class="moviesConatiner">
-        <h3>Movies</h3>
-        <div class="collection">
-          <a href="#!" class="collection-item">Alvin</a>
-          <a href="#!" class="collection-item">Alvin</a>
-          <a href="#!" class="collection-item">Alvin</a>
-          <a href="#!" class="collection-item">Alvin</a>
+      <div class="information">
+        <a
+          class="waves-effect waves-light btn modal-trigger green lighten-1"
+          href="#modal1"
+          >Info!</a
+        >
+      </div>
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h4>Modal Header</h4>
+          <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat"
+            >Sweet!</a
+          >
         </div>
       </div>
-      <div class="recipeConatiner">
+    </div>
+    <section class="mainContainer">
+      <div class="moviesContainer">
+        <h3>Movies</h3>
+        <div class="input-field col s12">
+          <select>
+            <option value="" disabled selected>Pick your Movie genre!</option>
+            <option value="1">Action</option>
+            <option value="2">Adventure</option>
+            <option value="3">Fantasy</option>
+            <option value="1">Horror</option>
+            <option value="2">Nature</option>
+            <option value="3">Sci-fi</option>
+          </select>
+          <a class="waves-effect waves-light btn green lighten-1">button</a>
+        </div>
+      </div>
+      <div class="recipeContainer">
         <h3>Recipes</h3>
-        <div class="collection">
-          <a href="#!" class="collection-item">Alvin</a>
-          <a href="#!" class="collection-item">Alvin</a>
-          <a href="#!" class="collection-item">Alvin</a>
-          <a href="#!" class="collection-item">Alvin</a>
+        <div class="input-field col s12">
+          <div class="input-field col s12">
+            <select>
+              <option value="" disabled selected>
+                Pick your culture of food!
+              </option>
+              <option value="1">Option 1</option>
+              <option value="2">Option 2</option>
+              <option value="3">Option 3</option>
+              <option value="1">Option 1</option>
+              <option value="2">Option 2</option>
+              <option value="3">Option 3</option>
+            </select>
+            <a class="waves-effect waves-light btn green lighten-1">button</a>
+          </div>
         </div>
       </div>
     </section>
