@@ -2,42 +2,15 @@
   margin: 0;
   padding: 0;
   font-family: arial;
-  box-sizing: border-box;
 }
 
 body {
   background-color: azure;
 }
 
-header {
-  background-color: rgba(128, 128, 128, 0.384);
-  text-align: center;
-}
-
 h3 {
   text-decoration: underline;
   font-weight: 700;
-}
-
-.navbar {
-  background-color: slategray;
-  height: 70px;
-}
-
-.navbar ul {
-  list-style-type: none;
-}
-
-.navbar ul li {
-  display: inline-block;
-  line-height: 70px;
-}
-
-.navbar ul li a {
-  text-decoration: none;
-  font-size: 24px;
-  color: black;
-  padding: 0 10px;
 }
 
 .navbar ul li a:visited {
@@ -80,6 +53,13 @@ h3 {
 
 .buttonClass:hover {
   background: #5cbf2a;
+}
+
+#recipe-btn {
+  cursor: pointer;
+  width: 100px;
+  height: 30px;
+  background-color: #18ab29;
 }
 
 aside {
