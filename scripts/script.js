@@ -38,6 +38,39 @@ async function fetchRecipe() {
 const recipeButton = document.getElementById("recipe-btn");
 recipeButton.addEventListener("click", fetchRecipe);
 
+async function fetchImages() {
+  let url = `https://edamam-recipe-search.p.rapidapi.com/api/recipes/v2?type=public`
+  const options = {
+    method: 'GET',
+    headers: {
+      'Accept-Language': 'en',
+      'X-RapidAPI-Key': recipeAPI,
+      'X-RapidAPI-Host': 'edamam-recipe-search.p.rapidapi.com'
+    }
+  };
+  
+  try {
+    const response = await fetch(url, options);
+    const result = await response.json();
+
+    let recipes = result.hits
+    let indexes = []
+    
+    while (indexes.length < 5) {
+      let index = Math.floor(Math.random() * recipes.length)
+      if (indexes.includes(index)) {
+        null
+      } else {
+        indexes.push(index)
+      }
+    }  
+    console.log(indexes)
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+document.addEventListener("load", fetchImages)
 
 $(document).ready(function () {
   $(".carousel").carousel({
