@@ -1,5 +1,5 @@
-const movieAPI = "c2892f35b3b0accbbc6178b362b1a1f5"
-const recipeAPI = "cca843b0a3msh3bae8af4ca13636p1832e0jsnf296ec4e2a77"
+const apiKey = 'cca843b0a3msh3bae8af4ca13636p1832e0jsnf296ec4e2a77'
+const movieLists = ["most_pop_movies", "most_pop_series", "top_rated_series_250"]
 
 async function fetchRecipe() {
   let cuisine = document.getElementById("recipe-drp-dwn").value
@@ -8,7 +8,7 @@ async function fetchRecipe() {
     method: 'GET',
     headers: {
       'Accept-Language': 'en',
-      'X-RapidAPI-Key': recipeAPI,
+      'X-RapidAPI-Key': apiKey,
       'X-RapidAPI-Host': 'edamam-recipe-search.p.rapidapi.com'
     }
   };
@@ -35,8 +35,40 @@ async function fetchRecipe() {
   }
 }
 
+async function fetchMovie() {
+  let listIndex = Math.floor(Math.random() * movieLists.length)
+  let listType = movieLists[listIndex]
+  let genre = document.getElementById("movie-drp-dwn").value
+  const url = `https://moviesdatabase.p.rapidapi.com/titles/random?genre=${genre}&list=${listType}`;
+  const options = {
+	  method: 'GET',
+	  headers: {
+		  'X-RapidAPI-Key': 'cca843b0a3msh3bae8af4ca13636p1832e0jsnf296ec4e2a77',
+		  'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
+	  }
+  };
+
+  try {
+	  const response = await fetch(url, options);
+	  const result = await response.json();
+	  console.log(result);
+
+    let movies = result.results
+    let movieIndex = Math.floor(Math.random() * movies.length)
+    let selectedMovie = movies[movieIndex]
+    
+    let movieDetails = {title:selectedMovie.titleText.text, image:selectedMovie.primaryImage.url, year:selectedMovie.releaseYear.year}
+    console.log(movieDetails)
+  } catch (error) {
+	  console.error(error);
+  }
+}
+
 const recipeButton = document.getElementById("recipe-btn");
+const movieButton = document.getElementById("movie-btn");
+
 recipeButton.addEventListener("click", fetchRecipe);
+movieButton.addEventListener("click", fetchMovie);
 
 async function fetchImages() {
   let url = `https://edamam-recipe-search.p.rapidapi.com/api/recipes/v2?type=public`
