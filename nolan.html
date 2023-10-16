@@ -79,13 +79,24 @@
       <button onclick=generate() id="gen-btn">Generate</button>
     </div>
     <section id="results">
+      <h1 id="pre-header">Click Generate!</h1>
       <div class="results-cards">
         <img id="movie-image" class="result-image" src="#" alt="movie-image">
-        <div class="result-info"></div>
+        <div class="result-info">
+          <div id="title" class="result-tag light text"></div>
+          <div id="year" class="result-tag dark text"></div>
+          <div id="rating" class="result-tag light text"></div>
+          <a id="movie-trailer" class="link-btn text dark" href="">Check it out!</a>
+        </div>
       </div>
       <div class="results-cards">
         <img id="recipe-image" class="result-image" src="#" alt="recipe-image">
-        <div class="result-info"></div>
+        <div class="result-info">
+          <div id="label" class="result-tag light text"></div>
+          <div id="calories" class="result-tag dark text"></div>
+          <div id="time" class="result-tag light text"></div>
+          <a id="recipe-link" class="link-btn text dark" href="">Check it out!</a>
+        </div>
       </div>
     </section>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

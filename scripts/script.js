@@ -20,11 +20,24 @@ function generate() {
   } else {
     fetchRecipe(cuisine)
     fetchMovie()
+
+    let preHeader = document.getElementById("pre-header")
+    preHeader.style.display = "none"
+    
+    let cards = document.getElementsByClassName("results-cards")
+    for (let i=0; i<cards.length; i++) {
+      cards[i].style.display = "flex"    
+    }
+
+    let images = document.getElementsByClassName("result-image")
+    for (let i=0; i<images.length; i++) {
+      images[i].style.visibility = "visible"    
+    }
   }
 }
   
 async function fetchRecipe(cuisine) {
-  let url = `https://edamam-recipe-search.p.rapidapi.com/api/recipes/v2?type=public&cuisineType=${cuisine}`
+  let url = `https://edamam-recipe-search.p.rapidapi.com/api/recipes/v2?type=public&cuisineType=${cuisine}&random=true`
   const options = {
     method: 'GET',
     headers: {
@@ -51,8 +64,16 @@ async function fetchRecipe(cuisine) {
     let recipeDetails = [selectedRecipe.label, selectedRecipe.calories, selectedRecipe.image, selectedRecipe.url, selectedRecipe.totalTime]
 
     let recipeImage = document.getElementById("recipe-image")
+    let recipeLabel = document.getElementById("label")
+    let recipeCalories = document.getElementById("calories")
+    let recipeTime = document.getElementById("time")
+    let recipeLink = document.getElementById("recipe-link")
+
     recipeImage.setAttribute("src", recipeDetails[2])
-    recipeImage.style.visibility = "visible";
+    recipeLabel.innerHTML = selectedRecipe.label
+    recipeCalories.innerHTML = `Calories: ${parseInt(selectedRecipe.calories)}`
+    recipeTime.innerHTML = `Prep time: ${selectedRecipe.totalTime} minutes`
+    recipeLink.setAttribute("href", selectedRecipe.url)
   } catch (error) {
     console.error(error);
   }
@@ -60,10 +81,10 @@ async function fetchRecipe(cuisine) {
 
 
 async function fetchMovie() {
-  let listIndex = Math.floor(Math.random() * movieLists.length)
-  let listType = movieLists[listIndex]
+  //let listIndex = Math.floor(Math.random() * movieLists.length)
+  //let listType = movieLists[listIndex]
   let genre = document.getElementById("movie-drp-dwn").value
-  const url = `'https://moviesminidatabase.p.rapidapi.com/movie/byGen/${genre}/'`;
+  const url = `https://moviesminidatabase.p.rapidapi.com/movie/byGen/${genre}/`;
   const options = {
     method: 'GET',
     headers: {
@@ -75,17 +96,40 @@ async function fetchMovie() {
   try {
 	  const response = await fetch(url, options);
 	  const result = await response.json();
-	  console.log(result);
 
-    //let movies = result.results
-    //let movieIndex = Math.floor(Math.random() * movies.length)
-    //let selectedMovie = movies[movieIndex]
-    //
-    //let movieDetails = [selectedMovie.titleText.text, selectedMovie.primaryImage.url, selectedMovie.releaseYear.year]
+    let movies = result.results
+    let movieIndex = Math.floor(Math.random() * movies.length)
+    let selectedMovie = movies[movieIndex]
+    let imdbID = selectedMovie.imdb_id
+    
+    const imdbURL = `https://moviesminidatabase.p.rapidapi.com/movie/id/${imdbID}/`
+    const imdbOptions = {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Key': 'cca843b0a3msh3bae8af4ca13636p1832e0jsnf296ec4e2a77',
+        'X-RapidAPI-Host': 'moviesminidatabase.p.rapidapi.com'
+      }
+    };
 
-   //let movieImage = document.getElementById("movie-image")
-   //movieImage.setAttribute("src", movieDetails[2])
-   //movieImage.style.visibility = "visible";
+    try {
+      const imdbResponse = await fetch(imdbURL, imdbOptions);
+      const imdbResult = await imdbResponse.json();
+
+      let movieResult = imdbResult.results
+      let movieImage = document.getElementById("movie-image")
+      let movieTitle = document.getElementById("title")
+      let movieYear = document.getElementById("year")
+      let movieRating = document.getElementById("rating")
+      let movieTrailer = document.getElementById("movie-trailer")
+
+      movieImage.setAttribute("src", movieResult.image_url)
+      movieTitle.innerHTML = movieResult.title
+      movieYear.innerHTML = movieResult.year
+      movieRating.innerHTML = movieResult.content_rating
+      movieTrailer.setAttribute("href", movieResult.trailer)
+    } catch (error) {
+      console.error(error);
+    }
   } catch (error) {
 	  console.error(error);
   }
