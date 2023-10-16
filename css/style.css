@@ -145,3 +145,38 @@ h3 {
   left: 300px;
   z-index: 1;
 }
+
+.previous-hidden {
+  display: none;
+  flex-wrap: row;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  transition: 1s;
+}
+
+.previous-visible {
+  display: flex;
+  flex-wrap: row;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  font-size: 25px;
+  height: 75px;
+  width: 100%;
+}
+
+.pre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  width: 50%;
+  color: white;
+  background-color: rgb(150, 196, 150);
+}
+
+.pre:hover {
+  background-color: rgb(106, 138, 106);
+}

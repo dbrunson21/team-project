@@ -1,5 +1,9 @@
 const apiKey = 'cca843b0a3msh3bae8af4ca13636p1832e0jsnf296ec4e2a77'
-const movieLists = ["most_pop_movies", "most_pop_series", "top_rated_series_250"]
+
+localStorage.setItem("recipeName", "")
+localStorage.setItem("recipeUrl", "")
+localStorage.setItem("movieName", "")
+localStorage.setItem("movieUrl", "")
 
 function generate() {
   let movieSelect = document.getElementById("movie-select")
@@ -8,8 +12,6 @@ function generate() {
   recipeSelect.setAttribute("style", "background-color: rgb(169, 169, 169);")
 
   let cuisine = document.getElementById("recipe-drp-dwn").value
-  let listIndex = Math.floor(Math.random() * movieLists.length)
-  let listType = movieLists[listIndex]
   let genre = document.getElementById("movie-drp-dwn").value
 
   if (genre === "none") {
@@ -33,6 +35,14 @@ function generate() {
     for (let i=0; i<images.length; i++) {
       images[i].style.visibility = "visible"    
     }
+    let preMovie = document.getElementById("pre-movie")
+    let preRecipe = document.getElementById("pre-recipe")
+
+    preMovie.innerHTML = localStorage.getItem("movieName")
+    preMovie.setAttribute("href", localStorage.getItem("movieUrl"))
+
+    preRecipe.innerHTML = localStorage.getItem("recipeName")
+    preRecipe.setAttribute("href", localStorage.getItem("recipeUrl"))
   }
 }
   
@@ -61,7 +71,6 @@ async function fetchRecipe(cuisine) {
     ///image = recipeDetails.image
     ///link = recipeDetails.link
     ///cook time = recipeDetails.time
-    let recipeDetails = [selectedRecipe.label, selectedRecipe.calories, selectedRecipe.image, selectedRecipe.url, selectedRecipe.totalTime]
 
     let recipeImage = document.getElementById("recipe-image")
     let recipeLabel = document.getElementById("label")
@@ -69,11 +78,14 @@ async function fetchRecipe(cuisine) {
     let recipeTime = document.getElementById("time")
     let recipeLink = document.getElementById("recipe-link")
 
-    recipeImage.setAttribute("src", recipeDetails[2])
+    recipeImage.setAttribute("src", selectedRecipe.image)
     recipeLabel.innerHTML = selectedRecipe.label
     recipeCalories.innerHTML = `Calories: ${parseInt(selectedRecipe.calories)}`
     recipeTime.innerHTML = `Prep time: ${selectedRecipe.totalTime} minutes`
     recipeLink.setAttribute("href", selectedRecipe.url)
+
+    localStorage.setItem("recipeName", selectedRecipe.label)
+    localStorage.setItem("recipeUrl", selectedRecipe.url)
   } catch (error) {
     console.error(error);
   }
@@ -127,12 +139,21 @@ async function fetchMovie() {
       movieYear.innerHTML = movieResult.year
       movieRating.innerHTML = movieResult.content_rating
       movieTrailer.setAttribute("href", movieResult.trailer)
+
+      localStorage.setItem("movieName", movieResult.title)
+      localStorage.setItem("movieUrl", movieResult.trailer)
     } catch (error) {
       console.error(error);
     }
   } catch (error) {
 	  console.error(error);
   }
+}
+
+function toggleVisible() {
+  let previous = document.getElementById("previous")
+  previous.classList.toggle("previous-visible")
+  previous.classList.toggle("previous-hidden")
 }
 
 $(document).ready(function () {
