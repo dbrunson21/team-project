@@ -165,6 +165,7 @@ h3 {
   font-size: 25px;
   height: 75px;
   width: 100%;
+  transition: 1s;
 }
 
 .pre {
@@ -174,9 +175,9 @@ h3 {
   border: 1px solid black;
   width: 50%;
   color: white;
-  background-color: rgb(150, 196, 150);
+  background-color: darkgray;
 }
 
 .pre:hover {
-  background-color: rgb(106, 138, 106);
+  background-color: rgb(123, 123, 123);
 }

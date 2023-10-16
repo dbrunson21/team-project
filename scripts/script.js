@@ -15,10 +15,10 @@ function generate() {
   let genre = document.getElementById("movie-drp-dwn").value
 
   if (genre === "none") {
-    movieSelect.setAttribute("style", "background-color: rgb(255, 0, 0, .8);")
+    movieSelect.setAttribute("style", "background-color: rgb(255, 0, 0, .3);")
   }
   if (cuisine === "none") {
-    recipeSelect.setAttribute("style", "background-color: rgb(255, 0, 0, .8);")
+    recipeSelect.setAttribute("style", "background-color: rgb(255, 0, 0, .3);")
   } else {
     fetchRecipe(cuisine)
     fetchMovie()
